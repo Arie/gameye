@@ -1,0 +1,40 @@
+require 'json'
+require 'faraday'
+
+module Gameye
+  class Client
+
+    attr_accessor :endpoint, :token
+
+    def initialize(token, endpoint = "https://api.gameye.com")
+      @token    = token
+      @endpoint = endpoint
+    end
+
+    def connection
+      Faraday.new(:url => endpoint) do |conn|
+        conn.request :url_encoded
+        conn.adapter :net_http
+      end
+    end
+
+    def post(path, params)
+      connection.post do |req|
+        req.url "/action/#{path}"
+        req.headers['Content-Type'] = 'application/json'
+        req.headers['Authorization'] = "Bearer #{token}"
+        req.body = params.to_json
+      end
+    end
+
+    def get(path)
+      response = connection.get do |req|
+        req.url "/fetch/#{path}"
+        req.headers['Authorization'] = "Bearer #{token}"
+      end
+      if response.success?
+        JSON.parse(response.body)
+      end
+    end
+  end
+end
