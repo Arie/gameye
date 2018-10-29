@@ -8,13 +8,16 @@ module Gameye
       @maps       = named_argument("map")["option"]
     end
 
+    def self.fetch(client:, game_key:)
+      response = client.get("template?gameKey=#{game_key}")
+      response["template"].map { |t| new(t) }
+    end
+
+    private
+
     def named_argument(name)
       arguments.find { |key| key["name"] == name }
     end
 
-    def self.fetch(client, game_key)
-      response = client.get("template?gameKey=#{game_key}")
-      response["template"].map { |t| new(t) }
-    end
   end
 end
