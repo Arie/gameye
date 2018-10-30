@@ -5,6 +5,12 @@ module Gameye
 
   describe Match do
 
+    it "fetches an empty list of matches", :vcr do
+      matches = described_class.all
+
+      expect(matches).to eql([])
+    end
+
     it "starts a match", :vcr do
       response = described_class.start(game_key: "tf2", match_key: "serveme-test-123", location_keys: ["rotterdam"], template_key: "bots", options: {hostname: "Foobarwidget"})
       expect(response).to be true

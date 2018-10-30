@@ -40,8 +40,6 @@ module Gameye
       response = client.get("match")
       if response["match"]
         response["match"].map { |m| new(m[1]) }
-      else
-        []
       end
     end
   end
