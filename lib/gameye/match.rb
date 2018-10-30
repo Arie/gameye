@@ -39,7 +39,7 @@ module Gameye
     def self.all(client: Gameye::Client.new)
       response = client.get("match")
       if response["match"]
-        response["match"].map { |m| new(m[1]) }
+        response["match"].map { |m| new(m[1]) if !m[1].nil? }
       end
     end
   end
