@@ -27,7 +27,7 @@ module Gameye
       expect(match.location_key).to eql("rotterdam")
       expect(match.port).to eql(56494)
       expect(match.tv_port).to eql(61828)
-      expect(match.created.to_s).to eql("2018-10-30 19:48:39 +0100")
+      expect(match.created.to_i).to eql(1540925319)
     end
 
     it "returns the status if the match couldn't be started", :vcr do
