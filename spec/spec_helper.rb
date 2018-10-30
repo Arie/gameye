@@ -19,7 +19,6 @@ end
 
 RSpec.configure do |config|
   config.before(:suite) do
-    Gameye::API_TOKEN = "api-token"
-    Gameye::API_ENDPOINT = nil
+    Gameye.token = "api-token"
   end
 end

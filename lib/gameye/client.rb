@@ -7,11 +7,11 @@ module Gameye
     attr_writer :endpoint, :token
 
     def token
-      @token || Gameye::API_TOKEN || raise(StandardError, "No Gameye API token set")
+      @token || Gameye.token
     end
 
     def endpoint
-      @endpoint || Gameye::API_ENDPOINT || "https://api.gameye.com"
+      @endpoint || Gameye.endpoint
     end
 
     def connection
