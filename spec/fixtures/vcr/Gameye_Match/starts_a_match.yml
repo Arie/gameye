@@ -1,0 +1,30 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.gameye.com/action/start-match
+    body:
+      encoding: UTF-8
+      string: '{"gameKey":"tf2","locationKeys":["rotterdam"],"templateKey":"bots","matchKey":"serveme-test-123","config":{"hostname":"Foobarwidget"}}'
+    headers:
+      User-Agent:
+      - Faraday v0.15.3
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer api-token
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      date:
+      - Tue, 30 Oct 2018 18:47:33 GMT
+      connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version:
+  recorded_at: Tue, 30 Oct 2018 18:47:33 GMT
+recorded_with: VCR 4.0.0

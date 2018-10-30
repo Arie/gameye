@@ -23,7 +23,7 @@ module Gameye
       if response.status == 204
         true
       else
-        response
+        response.status
       end
     end
 
@@ -32,7 +32,7 @@ module Gameye
       if response.status == 204
         true
       else
-        response
+        response.status
       end
     end
 
