@@ -1,0 +1,32 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.gameye.com/fetch/game
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.3
+      Authorization:
+      - Bearer api-token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Tue, 30 Oct 2018 18:11:40 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '679'
+      connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"game":{"csgo":{"gameKey":"csgo","location":{"rotterdam":true,"los_angeles":true,"washington_dc":true,"frankfurt":true}},"tf2":{"gameKey":"tf2","location":{"rotterdam":true,"los_angeles":true,"washington_dc":true,"frankfurt":true}},"css":{"gameKey":"css","location":{}},"l4d2":{"gameKey":"l4d2","location":{}},"kf2":{"gameKey":"kf2","location":{}}},"location":{"rotterdam":{"locationKey":"rotterdam"},"ireland":{"locationKey":"ireland"},"dubai":{"locationKey":"dubai"},"tokyo":{"locationKey":"tokyo"},"los_angeles":{"locationKey":"los_angeles"},"washington_dc":{"locationKey":"washington_dc"},"brazilsouth":{"locationKey":"brazilsouth"},"frankfurt":{"locationKey":"frankfurt"}}}'
+    http_version:
+  recorded_at: Tue, 30 Oct 2018 18:11:40 GMT
+recorded_with: VCR 4.0.0

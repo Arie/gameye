@@ -12,7 +12,7 @@ module Gameye
       @created      = Time.at((json["created"] / 1000.0).to_i)
     end
 
-    def self.start(client:, game_key:, location_keys:, template_key:, match_key:, options: {})
+    def self.start(client: Gameye::Client.new, game_key:, location_keys:, template_key:, match_key:, options: {})
       response = client.post("start-match", {
         gameKey: game_key,
         locationKeys: location_keys,
@@ -27,7 +27,7 @@ module Gameye
       end
     end
 
-    def self.stop(client:, match_key:)
+    def self.stop(client: Gameye::Client.new, match_key:)
       response = client.post("stop-match", { matchKey: match_key })
       if response.status == 204
         true
@@ -36,7 +36,7 @@ module Gameye
       end
     end
 
-    def self.all(client:)
+    def self.all(client: Gameye::Client.new)
       response = client.get("match")
       if response["match"]
         response["match"].map { |m| new(m[1]) }

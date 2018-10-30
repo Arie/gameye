@@ -4,11 +4,14 @@ require 'faraday'
 module Gameye
   class Client
 
-    attr_accessor :endpoint, :token
+    attr_writer :endpoint, :token
 
-    def initialize(token, endpoint = "https://api.gameye.com")
-      @token    = token
-      @endpoint = endpoint
+    def token
+      @token || Gameye::API_TOKEN || raise(StandardError, "No Gameye API token set")
+    end
+
+    def endpoint
+      @endpoint || Gameye::API_ENDPOINT || "https://api.gameye.com"
     end
 
     def connection

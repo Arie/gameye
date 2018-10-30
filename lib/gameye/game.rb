@@ -7,7 +7,7 @@ module Gameye
       @locations  = json["location"].keys
     end
 
-    def self.fetch(client:)
+    def self.fetch(client: Gameye::Client.new)
       response = client.get("game")
       response["game"].map { |g| new(g[1]) }
     end
