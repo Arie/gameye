@@ -1,7 +1,7 @@
 module Gameye
   class Match
 
-    attr_accessor :game_key, :location_key, :host, :port, :tv_port, :created
+    attr_accessor :game_key, :match_key, :location_key, :host, :port, :tv_port, :created
     def initialize(json)
       @game_key     = json["gameKey"]
       @match_key    = json["matchKey"]
