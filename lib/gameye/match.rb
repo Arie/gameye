@@ -8,7 +8,7 @@ module Gameye
       @location_key = json["locationKey"]
       @host         = json["host"]
       @port         = json["port"]["game"]
-      @tv_port      = json["port"]["hltv"]
+      @tv_port      = json["port"]["stv"] || json["port"]["hltv"]
       @created      = Time.at((json["created"] / 1000.0).to_i)
     end
 
