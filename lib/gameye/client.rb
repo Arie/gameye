@@ -30,9 +30,9 @@ module Gameye
       end
     end
 
-    def get(path)
+    def get(path, method = "fetch")
       response = connection.get do |req|
-        req.url "/fetch/#{path}"
+        req.url "/#{method}/#{path}"
         req.headers['Authorization'] = "Bearer #{token}"
       end
       if response.success?
