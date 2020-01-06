@@ -5,26 +5,32 @@ http_interactions:
     uri: https://api.gameye.com/action/start-match
     body:
       encoding: UTF-8
-      string: '{"gameKey":"tf2","locationKeys":["rotterdam"],"templateKey":"bots","matchKey":"serveme-test-123","config":{"hostname":"Foobarwidget"}}'
+      string: '{"gameKey":"tf2","locationKeys":["frankfurt"],"templateKey":"bots","matchKey":"serveme-test-123","config":{"hostname":"Foobarwidget"}}'
     headers:
       User-Agent:
-      - Faraday v0.15.3
+      - Faraday v0.17.0
       Content-Type:
       - application/json
       Authorization:
       - Bearer api-token
   response:
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
     headers:
       date:
-      - Tue, 30 Oct 2018 18:47:33 GMT
+      - Mon, 06 Jan 2020 18:59:58 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '145'
       connection:
       - close
+      vary:
+      - Origin
     body:
       encoding: UTF-8
-      string: ''
+      string: '{"id":"serveme-test-123","image":"tf2","location":"frankfurt","host":"178.162.194.76","created":1578337196780,"port":{"game":62382,"hltv":58616}}'
     http_version:
-  recorded_at: Tue, 30 Oct 2018 18:47:33 GMT
+  recorded_at: Mon, 06 Jan 2020 18:59:58 GMT
 recorded_with: VCR 4.0.0

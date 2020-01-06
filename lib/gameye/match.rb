@@ -20,8 +20,8 @@ module Gameye
         matchKey: match_key,
         config: options
       })
-      if response.status == 204
-        true
+      if (response.status == 204 || response.status == 200)
+        JSON.parse(response.body)
       else
         response.status
       end
@@ -29,7 +29,7 @@ module Gameye
 
     def self.stop(client: Gameye::Client.new, match_key:)
       response = client.post("stop-match", { matchKey: match_key })
-      if response.status == 204
+      if (response.status == 204 || response.status == 200)
         true
       else
         response.status

@@ -12,8 +12,14 @@ module Gameye
     end
 
     it "starts a match", :vcr do
-      response = described_class.start(game_key: "tf2", match_key: "serveme-test-123", location_keys: ["rotterdam"], template_key: "bots", options: {hostname: "Foobarwidget"})
-      expect(response).to be true
+      response = described_class.start(game_key: "tf2", match_key: "serveme-test-123", location_keys: ["frankfurt"], template_key: "bots", options: {hostname: "Foobarwidget"})
+      expect(response).to be {}
+      expect(response["host"]).to eql "178.162.194.76"
+      expect(response["id"]).to eql "serveme-test-123"
+      expect(response["image"]).to eql "tf2"
+      expect(response["location"]).to eql "frankfurt"
+      expect(response["port"]["game"]).to eql 62382
+      expect(response["port"]["hltv"]).to eql 58616
     end
 
     it "fetches matches", :vcr do
