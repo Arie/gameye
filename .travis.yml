@@ -4,5 +4,7 @@ rvm:
   - 2.5.5
   - 2.6.5
   - 2.7.0
+  - 3.0.1:w
+  
 sudo: false
 script: ./script/ci
