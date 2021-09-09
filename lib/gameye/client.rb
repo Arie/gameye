@@ -23,7 +23,7 @@ module Gameye
 
     def post(path, params)
       connection.post do |req|
-        req.url "/action/#{path}"
+        req.url "/#{path}"
         req.headers['Content-Type'] = 'application/json'
         req.headers['Authorization'] = "Bearer #{token}"
         req.body = params.to_json

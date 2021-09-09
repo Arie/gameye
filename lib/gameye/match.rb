@@ -13,7 +13,7 @@ module Gameye
     end
 
     def self.start(client: Gameye::Client.new, game_key:, location_keys:, template_key:, match_key:, options: {})
-      response = client.post("start-match", {
+      response = client.post("action/start-match", {
         gameKey: game_key,
         locationKeys: location_keys,
         templateKey: template_key,
@@ -28,7 +28,7 @@ module Gameye
     end
 
     def self.stop(client: Gameye::Client.new, match_key:)
-      response = client.post("stop-match", { matchKey: match_key })
+      response = client.post("action/stop-match", { matchKey: match_key })
       if (response.status == 204 || response.status == 200)
         true
       else
