@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'faraday'
 
 module Gameye
   class Client
-
     attr_writer :endpoint, :token
 
     def token
@@ -15,7 +16,7 @@ module Gameye
     end
 
     def connection
-      Faraday.new(:url => endpoint) do |conn|
+      Faraday.new(url: endpoint) do |conn|
         conn.request :url_encoded
         conn.adapter :net_http
       end
@@ -30,14 +31,12 @@ module Gameye
       end
     end
 
-    def get(path, method = "fetch")
+    def get(path, method = 'fetch')
       response = connection.get do |req|
         req.url "/#{method}/#{path}"
         req.headers['Authorization'] = "Bearer #{token}"
       end
-      if response.success?
-        JSON.parse(response.body)
-      end
+      JSON.parse(response.body) if response.success?
     end
   end
 end
