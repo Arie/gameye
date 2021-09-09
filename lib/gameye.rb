@@ -6,6 +6,7 @@ require 'gameye/template'
 require 'gameye/game'
 require 'gameye/location'
 require 'gameye/match'
+require 'gameye/session'
 
 module Gameye
   class << self

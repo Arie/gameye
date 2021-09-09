@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.gameye.com/session
+    body:
+      encoding: UTF-8
+      string: '{"id":"serveme-test-123","location":"eu-east","image":"serveme-tf2-live","args":[],"env":{},"restart":false}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.4
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer api-token
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      content-type:
+      - application/json
+      date:
+      - Thu, 09 Sep 2021 17:19:53 GMT
+      keep-alive:
+      - timeout=5
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"host":"5.83.175.103","ports":[]}'
+  recorded_at: Thu, 09 Sep 2021 17:19:53 GMT
+recorded_with: VCR 6.0.0
